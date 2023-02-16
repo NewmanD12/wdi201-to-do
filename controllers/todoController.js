@@ -1,5 +1,22 @@
 const Todo = require('../models/Todo')
+const { all } = require('../routes/todos')
 
+
+async function getAllTodos(req, res, next){
+    try {
+        const allTodos = await Todo.find({})
+        res.json({
+            success : true,
+            todos : allTodos
+        })
+    }
+    catch (e) {
+        res.json({
+            success : false,
+            error : e.toString()
+        })
+    }
+}
 
 async function createOneTodo(req, res, next) {
     try{
@@ -27,5 +44,6 @@ async function createOneTodo(req, res, next) {
 }
 
 module.exports = {
+    getAllTodos,
     createOneTodo
 }

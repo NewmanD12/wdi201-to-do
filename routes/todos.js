@@ -13,7 +13,8 @@ router.get('/', (req, res, next) =>{
     })
 })
 
+router.get('/all', todoController.getAllTodos)
 router.post('/create-one', todoController.createOneTodo)
 
 
-module.exports = router
+module.exports = router 
