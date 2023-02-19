@@ -6,15 +6,12 @@ const Todo = require('../models/Todo')
 
 const todoController = require('../controllers/todoController')
 
-router.get('/', (req, res, next) =>{
-    res.json({
-        success : true,
-        message : "index of todo's page"
-    })
-})
-
-router.get('/all', todoController.getAllTodos)
+router.get('/', todoController.index)
+router.get('/all-todos', todoController.getAllTodos)
 router.post('/create-one', todoController.createOneTodo)
+router.put('/update-one/:id', todoController.updateOneTodo)
+router.delete('/delete-one/:id', todoController.deleteTodo)
+router.delete('/delete-many', todoController.deleteMultiple)
 
 
 module.exports = router 

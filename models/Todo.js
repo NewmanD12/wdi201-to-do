@@ -1,6 +1,6 @@
 //import mongoose library
 const mongoose = require("mongoose");
-const { v4: uuidv4 } = require("uuid");
+
 
 const toDoSchema = new mongoose.Schema({
     name : {
@@ -16,10 +16,6 @@ const toDoSchema = new mongoose.Schema({
         type : Boolean,
         required : true,
         default : false
-    },
-    id: {
-        type : String,
-        default : uuidv4()
     },
     dateCreated : {
         type : Date,
