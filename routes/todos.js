@@ -12,6 +12,7 @@ router.post('/create-one', todoController.createOneTodo)
 router.put('/update-one/:id', todoController.updateOneTodo)
 router.delete('/delete-one/:id', todoController.deleteTodo)
 router.delete('/delete-many', todoController.deleteMultiple)
+router.post('/create-multiple', todoController.createMultiple)
 
 
 module.exports = router 

@@ -112,11 +112,31 @@ async function deleteMultiple(req, res, next){
     }
 }
 
+async function createMultiple(req, res, next) {
+    const todos = req.body.todos
+    try {
+
+        const createdTodos = await Todo.create(todos)
+
+        res.json({
+            success : true,
+            todos : createdTodos
+        })
+    }
+    catch (e) {
+        res.json({
+            success : false,
+            error : e.toString()
+        })
+    }
+}
+
 module.exports = {
     index,
     getAllTodos,
     createOneTodo, 
     updateOneTodo,
     deleteTodo, 
-    deleteMultiple
+    deleteMultiple, 
+    createMultiple
 }
